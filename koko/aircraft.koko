@@ -1,0 +1,8 @@
+extract "Ents" x from "aviation_incidents_cleaned.txt" if
+ (str(x) contains "Boeing" {0.1}) or
+ (str(x) contains "Airbus" {0.1}) or
+ (str(x) contains "Bombardier" {0.1}) or
+ (str(x) contains "Douglas" {0.1}) or
+ (", a" ~ x {0.1}) or
+ (", an" ~ x {0.1})
+with threshold 0.40
